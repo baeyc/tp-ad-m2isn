@@ -24,4 +24,6 @@ où, bien sûr, `nom_du_fichier` est à remplacer par le nom du TP correspondant
 
 *Nom du fichier* : TP_analyse_factorielle_discriminante_2"
 
+Lien vers le TP interactif : https://baeyc.shinyapps.io/tp_analyse_factorielle_discriminante_2/
+
 Trois exercices pour se familiariser avec l'analyse factorielle discriminante.
