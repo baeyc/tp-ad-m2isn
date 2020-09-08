@@ -3,6 +3,13 @@
 Vous trouverez sur ce dépôt Git les énoncés des TPs ainsi que leurs corrigés mis en ligne au fur et à mesure. Les TP sont préparés sous R.
 
 ## Comment ça marche ?
+Pour chaque TP, il y a :
+ - <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" width=2%>  un énoncé au format PDF
+ - <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" width=2%>  un fichier au format R Markdown
+ - :open_file_folder: un dossier `data` global contenant les données utilisées dans les TP
+ 
+### Mode interactif
+
 Les TP interactifs ont été réalisés sous R Shiny et ont été déployés sur shinyapps.io. Ils sont accessibles directement depuis l'url mentionné ci-dessous. En cas de problème, par exemple si le serveur est surchargé, il est possible de lancer le TP en local.
 Pour cela, il faut tout d'abord installer les packages suivants :
  - learnr
@@ -14,10 +21,17 @@ Pour cela, il faut tout d'abord installer les packages suivants :
  - knitr
  
 Puis, à partir de la console de [RStudio](https://rstudio.com/), on peut lancer :
-```
+```r
 rmarkdown::run("nom_du_fichier.Rmd")
 ```
 où, bien sûr, `nom_du_fichier` est à remplacer par le nom du TP correspondant. Une page web s'ouvre alors en local.
+
+:heavy_exclamation_mark:***Attention*** : le package `learnr`, utilisé pour construire les TP interactifs, fonctionne avec des exercices indépendants les uns des autres. Plus précisément, cela signifie que chaque fenêtre de code est exécutée sans tenir compte des autres, et donc aucune des variables ou des objets créés dans une fenêtre précédente ne seront accessibles. Deux solutions à cela : 
+ - une fois que l'on a obtenu ce qu'il fallait dans une fenêtre donnée, copier-coller ce code dans la fenêtre suivante. Il sera alors exécuté à nouveau et accessible. **Si vous choisissez cette option, tenez compte du fait que tous les calculs basés sur un échantillonnage aléatoire pourront donner des résultats différents quand ils seront lancés depuis deux fenêtres différentes. Pour obtenir les même résultats que ceux des fenêtres précédentes, pensez alors à fixer la graine du générateur aléatoire**.
+ - tout coder en une seule fois, sur une seule grande fenêtre. J'ai ajouté une fenêtre pour cela à la fin de chaque exercice, en bas de page.
+
+### Mode non interactif
+Il suffit de suivre les instructions du fichier pdf.
 
 ## Séance 1 : Analyse factorielle discriminante
 ### *11 septembre 2020, de 10h à 12h*
