@@ -29,6 +29,12 @@ On s'intéresse dans ce TP à l'analyse factorielle discriminante (AFD). On étu
 
 **La fonction R permettant de faire une AFD ets la fonction `lda` du package `MASS`. Il y a aussi la fonction `discrimin` du package `ade4`, qui s'utilise un peu différemment. Nous verrons les deux fonctions.**
 
+![](images/afd.png){ width=70% }
+
+*Illustration de l'analyse factorielle discriminante avec deux groupes : l'axe en pointillé est le premier axe discriminant*
+
+
+#### *A lire avant de commencer*
 Ce TP a été réalisé à l'aide du package `learnr` et de R Markdown, et utilise R Shiny pour le rendu interactif. 
 
 Tous les exercices peuvent être faits directement à partir de la page web, et tous les packages nécessaires sont déjà inclus. Il est bien sûr possible de faire les TP séparément sur sa propre machine. Dans ce cas, assurez-vous d'avoir bien installé toutes les librairies nécessaires.
@@ -37,17 +43,13 @@ Chaque question est suivie d'une zone dans laquelle vous pouvez entrer du code. 
 
 ![](images/hint.png){ width=90% }
 
-Dans certains cas, et pour ceux qui veulent aller plus loin, le logo `r fa("fas fa-star", fill = "orange")` vous propose une autre solution à l'aide de packages complémentaires.
+Dans certains cas, des questions supplémentaires sont proposées pour ceux qui veulent aller plus loin ou utiliser des outils plus avancés.
 
 La solution est ensuite accessible à l'aide du bouton `Solution` :
 
 ![](images/solution.png){ width=90% }
 
 C'est parti !
-
-![](images/afd.png){ width=70% }
-
-*Illustration de l'analyse factorielle discriminante avec deux groupes : l'axe en pointillé est le premier axe discriminant*
 
 ## 2. Les iris de Fisher
 
@@ -77,9 +79,9 @@ summary(iris)
 
 Diviser le jeu de données en une partie apprentissage, contenant la moitié des individus (choisis aléatoirement), et une partie test contenant les individus restants. 
  
- `r fa("fas fa-star", fill = "orange", height = 15)` *Utiliser le package `dplyr` et son outil `sample`*
+*Pour aller plus loin : Utiliser le package `dplyr` et son outil `sample`*
 
-```{r apprtest, exercise=TRUE}
+```{r apprtest, exercise=TRUE, exercise.setup="desc"}
 
 ```
  
@@ -101,7 +103,7 @@ data.test  <- anti_join(iris, data.appr, by = 'id') # sélectionne les élément
 
 Faire une AFD sur l'échantillon d'apprentissage, et afficher les facteurs discriminants (vecteurs directeurs des axes discriminants). Combien y en a-t-il ?
 
-```{r afdaxes, exercise=TRUE}
+```{r afdaxes, exercise=TRUE, exercise.setup="apprtest"}
 
 ```
  
@@ -111,9 +113,9 @@ iris.afd <- lda(Species ~ ., data=data.appr)
 fact.disc <- iris.afd$scaling
 ```
 
-Affichier la matrice de confusion. Quel est le taux de bien classés et de mal classés sur l'échantillon test ?
+Afficher la matrice de confusion. Quel est le taux de bien classés et de mal classés sur l'échantillon test ?
 
-```{r afdpred, exercise=TRUE}
+```{r afdpred, exercise=TRUE, exercise.setup="afdaxes"}
 
 ```
 
@@ -125,9 +127,9 @@ tx.bc <- sum(diag(confusion.matrix))/sum(confusion.matrix)
 tx.mc <- 1-tx.bc
 ```
 
- `r fa("fas fa-star", fill = "orange", height = 15)` *Tracer le nuage de points des données d'apprentissage et les 2 axes discriminants, puis afficher les données de test et leurs affectations.*
+*Pour aller plus loin : Tracer le nuage de points des données d'apprentissage et les 2 axes discriminants, puis afficher les données de test et leurs affectations.*
 
-```{r afdplot, exercise=TRUE}
+```{r afdplot, exercise=TRUE, exercise.setup="afdpred"}
 
 ```
 
@@ -155,9 +157,19 @@ ggplot(data=data.appr,aes(x=Sepal.Width,Petal.Width,color=Species)) + geom_point
 # on peut ensuite faire de même dans les autres plans formés par les autres combinaisons de variables
 ```
 
+### Pour tout coder sur une seule fenêtre :
+
+```{r irisall, exercise=TRUE}
+
+
+
+
+
+```
+
 ## 3. Classification d'insectes
 
-Les données se trouvent dans une base appelée `insects`.
+Les données se trouvent dans une base appelée `insects`, directement accessible depuis le TP interactif. 
 
 ### Analyse descriptive
 
@@ -176,7 +188,7 @@ apply(insects,2,sd) # variable la plus dispersée : V1, la moins dispersée : V5
 
 Calculer les centres de gravité de chaque groupe, ainsi que le centre de gravité de l'ensemble des points.
 
-```{r calc, exercise=TRUE}
+```{r calc, exercise=TRUE, exercise.setup="insectdecs"}
 
 ```
 
@@ -191,7 +203,7 @@ g_tot <- apply(insects[,1:6],2,mean)
 
 Réaliser une AFD. Combien d'axes garde t-on ? Pourquoi ?
 
-```{r insectafd, exercise=TRUE}
+```{r insectafd, exercise=TRUE, exercise.setup="calc"}
 
 ```
 
@@ -218,13 +230,26 @@ afd2 <- discrimin(dudi.pca(train[,1:6]),train$V7)
 Représenter les insectes sur le premier plan de l'AFD, et les variables discriminantes sur le cercle des corrélations correspondant. Commentez.
 
 
-```{r insectplot, exercise=TRUE, exercice.setup="insectafd-solution"}
+```{r insectplot, exercise=TRUE, exercice.setup="insectafd"}
 
 ```
 
 ```{r insectplot-hint}
 plot(afd2)
 ```
+
+
+
+### Pour tout coder sur une seule fenêtre :
+
+```{r insectall, exercise=TRUE}
+
+
+
+
+
+```
+
 
 ## 4. Reconnaissance de chiffres
 
@@ -296,7 +321,7 @@ mat.pass.disc <- afd_digits$fa
 ```
 
 On peut maintenant utiliser cette matrice de passage pour calculer les coordonnées des individus dans la nouvelle base. **Attention, la fonction `discrimin` agit sur les variables centrées réduites, il faut donc tout d'abord les normaliser**.
-```{r matpass, exercise=TRUE}
+```{r matpass, exercise=TRUE, exercise.setup="mnistafd"}
 
 ```
 
@@ -320,7 +345,7 @@ On cherche maintenant à construire une règle d'affectation pour les individus 
 
 Calculer les coordonnées des centres de gravité de chaque classe, dans l'ancienne base à 784 axes et dans la nouvelle base (plan discriminant).
 
-```{r mnistg, exercise=TRUE}
+```{r mnistg, exercise=TRUE, exercise.setup="matpass"}
 
 ```
 
@@ -365,7 +390,7 @@ g_x_new <- apply(t(scalewt(g_x)),2,function(v){as.vector(t(afd_digits$fa)%*%v)})
 Calculer maintenant la distance entre chaque point de l'échantillon test et les centres de gravité. On pourra par exemple calculer d'abord la différence entre la coordonnée 1 de xt et la coordonnée 1 de chaque centre de gravité, puis faire de 
 même pour la coordonnée 2, puis élever au carré et faire la somme. On doit obtenir une matrice ou un data.frame de taille 3000 (nombre d'individus) x 3 (nombre de centres de gravités).
 
-```{r mnistdistg, exercise=TRUE}
+```{r mnistdistg, exercise=TRUE, exercise.setup="mnistg"}
 
 ```
 
@@ -387,7 +412,7 @@ dist <- as.data.frame(dist)
 ```
 
 Maintenant, on va chercher quelle est la distance minimale : pour chaque ligne, on regarde dans quelle colonne se trouve le minimum et on affecte l'individu au groupe correspondant. 
-```{r mnistmin, exercise=TRUE}
+```{r mnistmin, exercise=TRUE, exercise.setup="mnistdistg"}
 
 ```
 
@@ -411,7 +436,7 @@ table(dist$class,digits$yt,dnn=c("Prédiction","Vraie classe"))
 ```
 
 Une fois les individus de la base de test affectés aux différentes classes, tracer le nuage de points de la base de test dans le premier plan factoriel discriminant.
-```{r mnistplottest, exercise=TRUE}
+```{r mnistplottest, exercise=TRUE, exercise.setup="mnistmin"}
 
 ```
 
@@ -424,9 +449,9 @@ plot(coord_x_new,pch=19,col=digits$y) # échantillon apprentissage
 ```
 
 
- `r fa("fas fa-star", fill = "orange", height = 15)` *Afficher quelques exemples de chiffres mal classés. Que remarque t-on ?*
+*Pour aller plus loin : Afficher quelques exemples de chiffres mal classés. Que remarque t-on ?*
  
-```{r exmisscl, exercise=TRUE}
+```{r exmisscl, exercise=TRUE, exercise.setup="mnistplottest"}
 
 ```
 
@@ -444,3 +469,12 @@ for (i in indices)
 
 ```
 
+### Pour tout coder sur une seule fenêtre :
+
+```{r mnistall, exercise=TRUE}
+
+
+
+
+
+```

@@ -3,6 +3,7 @@
 *.aux
 *.R
 *.sas
-*.Rmd
 *.gz
 *.log
+.Rproj.user
+*.html
