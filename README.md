@@ -33,6 +33,10 @@ Puis, à partir de la console de [RStudio](https://rstudio.com/), on peut lancer
 rmarkdown::run("nom_du_fichier.Rmd")
 ```
 où, bien sûr, `nom_du_fichier` est à remplacer par le nom du TP correspondant. Une page web s'ouvre alors en local.
+**Il faut bien penser à respecter la structure du dossier : mettre les fichiers de données dans un dossier `data` qui se trouve au même niveau que le fichier .Rmd. Si cela ne fonctionne toujours pas, il peut être nécessaire de lancer la commande suivante avant de faire le `rmarkdwon::run()` :**
+```r
+setwd("nom_du_repertoire_contenant_le_dossier_data_et_le_fichier_Rmd") # pour préciser où chercher les fichiers
+```
 
 :heavy_exclamation_mark:***Attention*** : le package `learnr`, utilisé pour construire les TP interactifs, fonctionne avec des exercices indépendants les uns des autres. Plus précisément, cela signifie que chaque fenêtre de code est exécutée sans tenir compte des autres, et donc aucune des variables ou des objets créés dans une fenêtre précédente ne seront accessibles. Deux solutions à cela : 
  - une fois que l'on a obtenu ce qu'il fallait dans une fenêtre donnée, copier-coller ce code dans la fenêtre suivante. Il sera alors exécuté à nouveau et accessible. **Si vous choisissez cette option, tenez compte du fait que tous les calculs basés sur un échantillonnage aléatoire pourront donner des résultats différents quand ils seront lancés depuis deux fenêtres différentes. Pour obtenir les même résultats que ceux des fenêtres précédentes, pensez alors à fixer la graine du générateur aléatoire**.
