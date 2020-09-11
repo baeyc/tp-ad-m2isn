@@ -209,17 +209,17 @@ Réaliser une AFD. Combien d'axes garde t-on ? Pourquoi ?
 
 ```{r insectafd-solution}
 # Découpage de la base de données en une partie apprentissage et une partie test
-rows <- sample(1:nrow(insects),30,replace = FALSE)
-train <- insects[rows,]
-test <- insects[-rows,]
+#rows <- sample(1:nrow(insects),30,replace = FALSE)
+#train <- insects[rows,]
+#test <- insects[-rows,]
 
-afd_app <- lda(V7~.,data=train,scores=TRUE)
-class_test <- predict(afd_app,test)
+#afd_app <- lda(V7~.,data=train,scores=TRUE)
+#class_test <- predict(afd_app,test)
 
-table(class_test$class,test$V7)
+#table(class_test$class,test$V7)
 
 # avec le package ade4
-afd2 <- discrimin(dudi.pca(train[,1:6]),train$V7)
+#afd2 <- discrimin(dudi.pca(train[,1:6]),train$V7)
 
 ```
 
@@ -235,7 +235,7 @@ Représenter les insectes sur le premier plan de l'AFD, et les variables discrim
 ```
 
 ```{r insectplot-hint}
-plot(afd2)
+#plot(afd2)
 ```
 
 
