@@ -137,7 +137,7 @@ tx.mc <- 1-tx.bc
 library(ggplot2)
 
 # dans le plan (Sepal.Width,Petal.Width)
-coord.facteurs <- as.data.frame(t(axes[row.names(axes)%in%c("Sepal.Width","Petal.Width"),]))
+coord.facteurs <- as.data.frame(t(fact.disc[row.names(fact.disc)%in%c("Sepal.Width","Petal.Width"),]))
 # à partir du vecteur directeur v de coordonnées (a,b) on récupère l'équation cartésienne de la droite correspondante
 # bx - ay + c = 0
 # on a alors la droite d'équation y = (b/a)x + (c/a) et on connaît a et b
