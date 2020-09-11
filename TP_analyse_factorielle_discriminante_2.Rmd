@@ -458,8 +458,8 @@ plot(coord_x_new,pch=19,col=digits$y) # échantillon apprentissage
 ```{r exmisscl-solution}
 # Exemple de chiffres mal classés
 mal_classes <- cbind(digits$xt[digits$yt!=dist$class,],digits$yt[digits$yt!=dist$class],dist$class[digits$yt!=dist$class])
-indices <- sample(1:dim(mal_classes)[1],20)
-par(mfrow=c(4,5))
+indices <- sample(1:dim(mal_classes)[1],10)
+par(mfrow=c(2,5))
 for (i in indices)
 {
   m <- matrix(mal_classes[i,1:784],nr=28,byrow = TRUE) # on extrait la ligne i de la matrice digits$x, puis on transforme le  vecteur obtenu en une matrice de taille 28x28 (voir énoncé)
