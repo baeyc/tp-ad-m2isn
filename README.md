@@ -51,8 +51,22 @@ Il suffit de suivre les instructions du fichier pdf.
 ## Séance 1 : Analyse factorielle discriminante
 ### *11 septembre 2020, de 10h à 12h*
 
-*Nom du fichier* : TP_analyse_factorielle_discriminante_2"
+*Nom du fichier* : TP_analyse_factorielle_discriminante_2
 
 Lien vers le TP interactif : https://baeyc.shinyapps.io/tp_analyse_factorielle_discriminante_2/
 
 Trois exercices pour se familiariser avec l'analyse factorielle discriminante.
+
+## Séance 2 : Analyse discriminante Gaussienne
+### *18 septembre 2020, de 10h à 12h*
+
+*Nom du fichier* : TP_analyse_discriminante_gaussienne
+
+Deux exercices, sur données artificielles et données réelles, pour comparer le cas homoscédastique et le cas hétéroscédastique (frontière de décision, parcimonie, ...)
+
+# Séance 3 : Régression logistique
+### *9 octobre 2020, de 10h à 12h*
+
+*Nom du fichier* : TP_regression_logistique
+
+Deux exercices sur la régression logistique (binaire, et polytomique).
