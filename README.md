@@ -64,7 +64,7 @@ Trois exercices pour se familiariser avec l'analyse factorielle discriminante.
 
 Deux exercices, sur données artificielles et données réelles, pour comparer le cas homoscédastique et le cas hétéroscédastique (frontière de décision, parcimonie, ...)
 
-# Séance 3 : Régression logistique
+## Séance 3 : Régression logistique
 ### *9 octobre 2020, de 10h à 12h*
 
 *Nom du fichier* : TP_regression_logistique
