@@ -6,6 +6,8 @@ Vous trouverez sur ce dépôt Git les énoncés des TPs ainsi que leurs corrigé
     + [Mode interactif](#mode-interactif)
     + [Mode non interactif](#mode-non-interactif)
   * [Séance 1 : Analyse factorielle discriminante](#tp-afd)
+  * [Séance 2 : Analyse discriminante Gaussienne](#tp-adg)
+  * [Séance 3 : Régression logistique](#tp-reglog)
 
 
 <a name="how-to"></a>
@@ -57,6 +59,7 @@ Lien vers le TP interactif : https://baeyc.shinyapps.io/tp_analyse_factorielle_d
 
 Trois exercices pour se familiariser avec l'analyse factorielle discriminante.
 
+ <a name="tp-adg"></a>
 ## Séance 2 : Analyse discriminante Gaussienne
 ### *18 septembre 2020, de 10h à 12h*
 
@@ -64,6 +67,7 @@ Trois exercices pour se familiariser avec l'analyse factorielle discriminante.
 
 Deux exercices, sur données artificielles et données réelles, pour comparer le cas homoscédastique et le cas hétéroscédastique (frontière de décision, parcimonie, ...)
 
+ <a name="tp-reglog"></a>
 ## Séance 3 : Régression logistique
 ### *9 octobre 2020, de 10h à 12h*
 
