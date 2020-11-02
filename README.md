@@ -8,6 +8,7 @@ Vous trouverez sur ce dépôt Git les énoncés des TPs ainsi que leurs corrigé
   * [Séance 1 : Analyse factorielle discriminante](#tp-afd)
   * [Séance 2 : Analyse discriminante Gaussienne](#tp-adg)
   * [Séance 3 : Régression logistique](#tp-reglog)
+  * [Séance 4 : k-plus proches voisins et arbres CART](#tp-knn-cart)
 
 
 <a name="how-to"></a>
@@ -69,8 +70,17 @@ Deux exercices, sur données artificielles et données réelles, pour comparer l
 
  <a name="tp-reglog"></a>
 ## Séance 3 : Régression logistique
-### *9 octobre 2020, de 10h à 12h*
+### *9 octobre 2020, de 10h à 12h* en visio
 
 *Nom du fichier* : TP_regression_logistique
 
 Deux exercices sur la régression logistique (binaire, et polytomique).
+
+<a name="tp-knn-cart"></a>
+## Séance 4 : k-plus proches voisins et arbres CART
+### *16 octobre 2020, de 10h à 12h pour le Groupe 2*
+### *19 octobre 2020, de 10h à 12h pour le Groupe 1*
+
+*Nom du fchier* : TP_knn_CART
+
+Quatre exercices, deux sur les k plus proches voisins et deux sur les arbres CART. Deux exercices seront faits en TP, les deux autres sont laissés en exercice. Le groupe 2 pourra profiter de la séance du 19 octobre pour continuer et terminer le TP. Le groupe 1 peut commencer à travailler sur l'énoncé dès le 16 octobre pour aller plus vite le 19.
